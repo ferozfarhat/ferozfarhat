@@ -36,4 +36,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: ferozfarhat/ferozfarhat
+  base-directory: ferozfarhat/ferozfarhat/Project
