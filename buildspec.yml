@@ -25,7 +25,7 @@ phases:
   post_build:
     commands:
       - echo "Build completed!"
-  artifacts:
+artifacts:
   files:
     - '**/*'
   base-directory: ferozfarhat/ferozfarhat
