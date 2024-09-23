@@ -19,8 +19,8 @@ phases:
       - cd path.imple-python-app
       - echo "building docker image..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest" .
-      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
+      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/ferozfarhat:latest" .
+      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/ferozfarhat:latest"
       - python -m unittest discover  # Run tests or build commands
   post_build:
     commands:
@@ -28,6 +28,6 @@ phases:
  artifacts:
   files:
     - '**/*'
-  base-directory: ../simple-python-app
+  base-directory: ../ferozfarhat
 
 
