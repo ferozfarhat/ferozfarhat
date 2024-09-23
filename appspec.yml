@@ -3,10 +3,10 @@ os: linux
 
 hooks:
   ApplicationStop:
-    - location: ferozfarhat/stop_container.sh
+    - location: script/stop_container.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: ferozfarhat/start_container.sh
+    - location: script/start_container.sh
       timeout: 300
       runas: root
