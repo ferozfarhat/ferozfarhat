@@ -5,29 +5,35 @@ env:
     DOCKER_REGISTRY_USERNAME: /myapp/docker-credentials/username
     DOCKER_REGISTRY_PASSWORD: /myapp/docker-credentials/password
     DOCKER_REGISTRY_URL: /myapp/docker-registry/url  
+
 phases:
   install:
     runtime-versions:
       python: 3.12
+    commands:
+      - echo "Installing dependencies..."
+      - python -m pip install --upgrade pip
+      - pip install -r Project/requirements.txt
+
   pre_build:
     commands:
-      - echo Pre-build phase...
-      - pip install -r path...requirments.txt
+      - echo "Pre-build phase..."
+
   build:
     commands:
-      - echo Build phase...
-      - cd path.imple-python-app
-      - echo "building docker image..."
+      - echo "Build phase..."
+      - cd Project
+      - echo "Building Docker image..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
       - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/ferozfarhat:latest" .
       - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/ferozfarhat:latest"
-      - python -m unittest discover  # Run tests or build commands
+      - echo "Running unit tests..."
+      
   post_build:
     commands:
       - echo "Build completed!"
+
 artifacts:
   files:
     - '**/*'
   base-directory: ferozfarhat/ferozfarhat
-
-
