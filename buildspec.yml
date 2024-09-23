@@ -28,6 +28,6 @@ phases:
  artifacts:
   files:
     - '**/*'
-  base-directory: ../ferozfarhat
+  base-directory: ferozfarhat/ferozfarhat
 
 
