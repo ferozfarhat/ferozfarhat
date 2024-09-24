@@ -2,7 +2,7 @@
 set -e
 
 # Stop and remove the container (if any)
-containerid=$(docker ps -q)  # Capture the ID of running containers
+containerid=$(docker ps | awk -F " " '{print $1}')
 
 if [ -n "$containerid" ]; then
     # Stop the container
